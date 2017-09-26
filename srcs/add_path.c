@@ -1,10 +1,24 @@
 #include "../includes/lem_in.h"
 
-void		add_path(t_anthill *anthill, char *line)
+int				locate_room(t_room *rooms, char *room, int size)
 {
-	char	**lines;
-	int		x;
-	int		y;
+	int			i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (!strcmp(rooms[i].name, room))
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+void			add_path(t_anthill *anthill, char *line)
+{
+	char		**lines;
+	int			x;
+	int			y;
 
 	if (anthill->n_rooms == 0 || anthill->n_ants == 0)
 		ft_error(anthill);

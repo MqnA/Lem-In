@@ -5,7 +5,6 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 LEM_IN_SRC =  srcs/main.c \
-			  srcs/struct.c \
 			  srcs/ft_error.c \
 			  srcs/solve.c \
 			  srcs/links_tab.c \

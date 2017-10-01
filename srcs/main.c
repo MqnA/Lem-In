@@ -14,12 +14,24 @@
 
 void			parse_line(t_anthill *anthill, char *line, int *start, int *end)
 {
+	static int isFirst[2] = {0, 0};
+
 	if (line[0] == '#')
 	{
-		if (0 == ft_strcmp("##start", line))
+		if (ft_strcmp("##start", line) == 0)
+		{
 			*start = 1;
-		if (0 == ft_strcmp("##end", line))
+			++isFirst[0];
+			if (isFirst[0] == 2)
+				ft_error(anthill);
+		}
+		if (ft_strcmp("##end", line) == 0)
+		{
 			*end = 1;
+			++isFirst[1];
+			if (isFirst[1] == 2)
+				ft_error(anthill);
+		}
 	}
 	else if (ft_strchr(line, '-'))
 		add_path(anthill, line);
@@ -42,7 +54,7 @@ void			parser(t_anthill *anthill)
 		if ((start || end) && (line[0] == '#' || ft_strchr(line, '-')))
 			ft_error(anthill);
 		if ((start == 1 && anthill->start_room != 0) || (end == 1
-			&& anthill->end_room != 0))
+					&& anthill->end_room != 0))
 			ft_error(anthill);
 		parse_line(anthill, line, &start, &end);
 		ft_lstpush(&anthill->step, line, ft_strlen(line));

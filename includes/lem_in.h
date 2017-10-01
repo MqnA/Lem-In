@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lem_in.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mavagner <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/01 11:40:01 by mavagner          #+#    #+#             */
+/*   Updated: 2017/10/01 12:40:41 by mavagner         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LEM_IN_H
 # define LEM_IN_H
 
@@ -27,6 +39,8 @@ typedef struct		s_anthill
 	int				n_ants;
 	int				n_rooms;
 	int				free;
+	int				check_start;
+	int				check_end;
 }					t_anthill;
 
 int					check_map(t_anthill *anthill);

@@ -6,7 +6,7 @@
 /*   By: mavagner <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 21:24:00 by mavagner          #+#    #+#             */
-/*   Updated: 2017/10/01 10:43:12 by mavagner         ###   ########.fr       */
+/*   Updated: 2017/10/01 12:46:37 by mavagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,12 @@ int				check_map(t_anthill *anthill)
 	solve(anthill, 0, 0);
 	while (i < anthill->n_rooms)
 	{
-		printf("|--- CHECK MAP PROCESS ---|\n");
 		if (anthill->rooms[i].start == 1)
-		{
-			printf("|---- START ---|\n");
 			start++;
-		}
 		if (anthill->rooms[i].end == 1)
-		{
-			printf("|---- END ----|\n");
 			end++;
-		}
 		if (start == 1 && end == 1)
-		{
-			printf("|--- START / END : OK ---|\n");
 			return (1);
-		}
 		i++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: mavagner <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 21:24:18 by mavagner          #+#    #+#             */
-/*   Updated: 2017/10/01 01:38:23 by mavagner         ###   ########.fr       */
+/*   Updated: 2017/10/01 12:40:58 by mavagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ t_anthill			*anthill_init(void)
 	anthill->n_ants = 0;
 	anthill->n_rooms = 0;
 	anthill->free = 0;
+	anthill->check_start = 0;
+	anthill->check_end = 0;
 	return (anthill);
 }

@@ -6,7 +6,7 @@
 /*   By: mavagner <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 21:24:26 by mavagner          #+#    #+#             */
-/*   Updated: 2017/10/01 10:58:52 by mavagner         ###   ########.fr       */
+/*   Updated: 2017/10/01 13:11:23 by mavagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void			parse_line(t_anthill *anthill, char *line, int *start, int *end)
 	{
 		if (0 == ft_strcmp("##start", line))
 			*start = 1;
-		else if (0 == ft_strcmp("##end", line))
+		if (0 == ft_strcmp("##end", line))
 			*end = 1;
 	}
 	else if (ft_strchr(line, '-'))
 		add_path(anthill, line);
-	else if (is_digit(line) && *start != 1)
+	else if (is_digit(line))
 		get_ants(anthill, line);
 	else if (1 == check_room(anthill, line))
 		add_room(anthill, line, start, end);
@@ -58,7 +58,6 @@ int				main(void)
 	parser(anthill);
 	if (0 == check_map(anthill))
 		ft_error(anthill);
-	ft_printf("|--- CHECK MAP ---|\n");
 	anthill->rooms[anthill->start_room].ants = anthill->n_ants;
 	lem_in(anthill);
 	free_all(anthill);

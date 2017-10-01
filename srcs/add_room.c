@@ -6,7 +6,7 @@
 /*   By: mavagner <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 21:23:56 by mavagner          #+#    #+#             */
-/*   Updated: 2017/10/01 09:55:02 by mavagner         ###   ########.fr       */
+/*   Updated: 2017/10/01 13:57:27 by mavagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ t_room			*realloc_rooms(t_anthill *anthill, char **lines, int size)
 void			add_room(t_anthill *anthill, char *line, int *start, int *end)
 {
 	char		**lines;
+
 	if (anthill->n_ants == 0)
 		ft_error(anthill);
 	if (*start == 1)

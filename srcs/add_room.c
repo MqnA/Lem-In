@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   add_room.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mavagner <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/30 21:23:56 by mavagner          #+#    #+#             */
+/*   Updated: 2017/10/01 09:55:02 by mavagner         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/lem_in.h"
 
 t_room			*realloc_rooms(t_anthill *anthill, char **lines, int size)
@@ -5,8 +17,9 @@ t_room			*realloc_rooms(t_anthill *anthill, char **lines, int size)
 	t_room		*new;
 	int			i;
 
-	new = (t_room*)malloc(sizeof(t_room) * size);
 	i = -1;
+	if (!(new = (t_room*)malloc(sizeof(t_room) * size)))
+		return (NULL);
 	while (++i < size - 1)
 	{
 		if ((!ft_strcmp(anthill->rooms[i].name, lines[0])) ||
@@ -29,8 +42,7 @@ t_room			*realloc_rooms(t_anthill *anthill, char **lines, int size)
 void			add_room(t_anthill *anthill, char *line, int *start, int *end)
 {
 	char		**lines;
-
-	if (anthill->n_ants == 0 || !(check_room(line)))
+	if (anthill->n_ants == 0)
 		ft_error(anthill);
 	if (*start == 1)
 		ants_init(anthill);
@@ -45,8 +57,8 @@ void			add_room(t_anthill *anthill, char *line, int *start, int *end)
 	anthill->rooms[anthill->n_rooms].cap = 1;
 	anthill->rooms[anthill->n_rooms].start = *start;
 	anthill->rooms[anthill->n_rooms].end = *end;
+	anthill->n_rooms++;
 	*start = 0;
 	*end = 0;
-	anthill->n_rooms++;
 	free_2d(lines);
 }

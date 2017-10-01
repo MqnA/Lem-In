@@ -1,19 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   solve.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mavagner <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/30 21:24:34 by mavagner          #+#    #+#             */
+/*   Updated: 2017/10/01 09:28:21 by mavagner         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/lem_in.h"
 
 int				min_distance(int *dist, int *spt, int max)
 {
 	int			min;
 	int			index;
-	int			i;
+	int			sommet;
 
 	min = INT_MAX;
-	i = -1;
-	while (++i < max)
+	sommet = -1;
+	while (++sommet < max)
 	{
-		if (spt[i] == 0 && dist[i] <= min)
+		if (spt[sommet] == 0 && dist[sommet] <= min)
 		{
-			min = dist[i];
-			index = i;
+			min = dist[sommet];
+			index = sommet;
 		}
 	}
 	return (index);
@@ -47,7 +59,7 @@ void			dijkstra(t_anthill *anthill, int *dist, int *spt, int *path)
 		ft_error(anthill);
 }
 
-void			solve(t_anthill *anthill, int ant_no, int option)
+void			solve(t_anthill *anthill, int ant_no, int check)
 {
 	int			dist[anthill->n_rooms];
 	int			spt[anthill->n_rooms];
@@ -63,6 +75,6 @@ void			solve(t_anthill *anthill, int ant_no, int option)
 	}
 	dist[anthill->ants[ant_no]] = 0;
 	dijkstra(anthill, dist, spt, path);
-	if (option)
+	if (check)
 		print_path(anthill, ant_no, path, anthill->end_room);
 }

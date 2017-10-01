@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   links_tab.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mavagner <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/30 21:24:24 by mavagner          #+#    #+#             */
+/*   Updated: 2017/10/01 01:39:05 by mavagner         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/lem_in.h"
 
 void			copy_links(t_anthill *anthill)
@@ -44,11 +56,13 @@ int				**links_init(int size)
 	int			j;
 
 	i = -1;
-	links = (int**)malloc(sizeof(int*) * size);
+	if (!(links = (int**)malloc(sizeof(int*) * size)))
+		return (0);
 	while (++i < size)
 	{
 		j = -1;
-		links[i] = (int*)malloc(sizeof(int) * size);
+		if (!(links[i] = (int*)malloc(sizeof(int) * size)))
+			return (0);
 		while (++j < size)
 			links[i][j] = 0;
 	}

@@ -6,13 +6,13 @@
 #    By: mavagner <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/06 15:26:03 by mavagner          #+#    #+#              #
-#    Updated: 2017/04/19 16:05:23 by mavagner         ###   ########.fr        #
+#    Updated: 2017/10/01 00:04:58 by mavagner         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CCFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 CC = gcc
 

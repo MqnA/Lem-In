@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mavagner <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/30 21:24:00 by mavagner          #+#    #+#             */
+/*   Updated: 2017/10/01 10:08:13 by mavagner         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/lem_in.h"
 
 int				check_map(t_anthill *anthill)
@@ -14,13 +26,24 @@ int				check_map(t_anthill *anthill)
 	solve(anthill, 0, 0);
 	while (i < anthill->n_rooms)
 	{
+		printf("|--- CHECK MAP PROCESS ---|\n");
 		if (anthill->rooms[i].start == 1)
+		{
+			printf("|---- START ---|\n");
 			start++;
+		}
 		if (anthill->rooms[i].end == 1)
+		{
+			printf("|---- END ----|\n");
 			end++;
+		}
 		i++;
 	}
+	printf("|--- LAST ---|\n");
 	if (start == 1 && end == 1)
+	{
+		printf("|--- START / END : OK ---|\n");
 		return (1);
+	}
 	return (0);
 }

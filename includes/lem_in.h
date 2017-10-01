@@ -30,7 +30,7 @@ typedef struct		s_anthill
 }					t_anthill;
 
 int					check_map(t_anthill *anthill);
-int					check_room(char *line);
+int					check_room(t_anthill *anthill, char *line);
 int					find_rooms(t_list *map);
 int					locate_room(t_room *rooms, char *room, int size);
 int					**links_init(int size);
@@ -45,8 +45,8 @@ void				parser(t_anthill *anthill);
 void				ants_init(t_anthill *anthill);
 void				get_ants(t_anthill *anthill, char *line);
 void				print_path(t_anthill *anthill, int ant, int *parent, int v);
-void				print_step(t_anthill *anthill);
-void				solve(t_anthill *anthill, int ant_no, int option);
+void				print_anthill(t_anthill *anthill);
+void				solve(t_anthill *anthill, int ant_no, int check);
 void				update_links(t_anthill *anthill);
 t_anthill			*anthill_init(void);
 t_room				*realloc_rooms(t_anthill *anthill, char **lines, int size);

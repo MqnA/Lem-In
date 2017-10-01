@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lem_in.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mavagner <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/30 21:24:21 by mavagner          #+#    #+#             */
+/*   Updated: 2017/10/01 03:58:59 by mavagner         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/lem_in.h"
 
 void			lem_in(t_anthill *anthill)
@@ -13,7 +25,7 @@ void			lem_in(t_anthill *anthill)
 		while (++i < anthill->n_ants)
 		{
 			if (check == 0)
-				print_step(anthill);
+				print_anthill(anthill);
 			copy_links(anthill);
 			update_links(anthill);
 			solve(anthill, i, 1);

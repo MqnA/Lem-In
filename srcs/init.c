@@ -1,10 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mavagner <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/30 21:24:18 by mavagner          #+#    #+#             */
+/*   Updated: 2017/10/01 01:38:23 by mavagner         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/lem_in.h"
 
 t_anthill			*anthill_init(void)
 {
 	t_anthill		*anthill;
 
-	anthill = (t_anthill*)malloc(sizeof(t_anthill));
+	if (!(anthill = (t_anthill*)malloc(sizeof(t_anthill))))
+		return (NULL);
 	anthill->links = NULL;
 	anthill->copy = NULL;
 	anthill->rooms = NULL;

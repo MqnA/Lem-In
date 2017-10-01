@@ -1,0 +1,11 @@
+5
+##start
+salon 1 0
+##end
+1 5 0
+##color
+2 9 0
+3 13 0
+salon-2
+2-3
+3-1

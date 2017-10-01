@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   add_path.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mavagner <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/30 21:23:51 by mavagner          #+#    #+#             */
+/*   Updated: 2017/10/01 09:41:58 by mavagner         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/lem_in.h"
 
 int				locate_room(t_room *rooms, char *room, int size)
@@ -36,5 +48,6 @@ void			add_path(t_anthill *anthill, char *line)
 	anthill->links[x][y] = 1;
 	anthill->links[y][x] = 1;
 	anthill->copy[x][y] = 1;
+	printf("|--- PATH INIT IN PROCESS ---|\n");
 	free_2d(lines);
 }

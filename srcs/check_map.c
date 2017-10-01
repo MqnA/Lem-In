@@ -6,7 +6,7 @@
 /*   By: mavagner <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 21:24:00 by mavagner          #+#    #+#             */
-/*   Updated: 2017/10/01 10:08:13 by mavagner         ###   ########.fr       */
+/*   Updated: 2017/10/01 10:43:12 by mavagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,12 @@ int				check_map(t_anthill *anthill)
 			printf("|---- END ----|\n");
 			end++;
 		}
+		if (start == 1 && end == 1)
+		{
+			printf("|--- START / END : OK ---|\n");
+			return (1);
+		}
 		i++;
-	}
-	printf("|--- LAST ---|\n");
-	if (start == 1 && end == 1)
-	{
-		printf("|--- START / END : OK ---|\n");
-		return (1);
 	}
 	return (0);
 }
